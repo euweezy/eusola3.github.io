@@ -1,29 +1,4 @@
-/* Reset default margins and padding */
-form {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.form-group {
-    display: flex;
-    align-items: center;
-    margin-bottom: 10px;
-}
-
-label {
-    width: 120px;
-    text-align: right;
-    margin-right: 15px;
-}
-
-input[type="text"],
-input[type="email"], 
-input[type="number"],
-input[type="date"],
-select {
-    flex: 1;
-}
-
+/* Reset and Basic Layout */
 * {
     margin: 0;
     padding: 0;
@@ -31,35 +6,64 @@ select {
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Gotham', Arial, sans-serif;
     line-height: 1.6;
     padding: 20px;
-    background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(42, 42, 42));
-}
-
-h1, h3 {
+    min-height: 100vh;
+    background: linear-gradient(to top, rgb(0, 0, 0), rgb(42, 42, 42));
+    text-align: center;
     color: #FFFFFF;
 }
 
-h1 {
-    text-align: center;
-    margin-bottom: 20px;
+/* Font Imports */
+@font-face {
+    font-family: 'Gotham';
+    src: url('fonts/GothamBold.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
 }
 
-h3 {
+@font-face {
+    font-family: 'Gotham';
+    src: url('fonts/GothamMedium.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Header Styles */
+h1, h3 {
     margin-bottom: 15px;
 }
 
+/* Fieldset Styling */
+.box {
+    margin-bottom: 20px;
+    background-color: rgb(18, 18, 18);
+    border-radius: 8px;
+    max-width: 50%;
+    margin: 0 auto;
+}
+fieldset {
+    border: none;
+    padding: 15px;
+    
+    text-align: center;
+}
+
+/* Label and Input Styling */
 label {
     display: inline-block;
     margin: 8px 0;
+    width: 120px;
+    text-align: right;
     font-weight: bold;
 }
 
 input[type="text"],
 input[type="email"],
 input[type="number"],
-input[type="date"] {
+input[type="date"],
+select {
     width: 200px;
     padding: 8px;
     margin: 5px 0;
@@ -67,38 +71,32 @@ input[type="date"] {
     border-radius: 4px;
 }
 
+/* Gender Radio Styling */
 input[type="radio"] {
     margin: 0 5px 0 15px;
 }
 
-select {
-    width: 100px;
-    padding: 8px;
-    margin: 5px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-br {
-    margin: 10px 0;
-}
+/* Submit Button Styling */
 input[type="submit"] {
-    background-color: #4CAF50;
-    color: white;
+    background-color: rgb(30, 215, 96);
+    color: rgb(0, 0, 0);
     padding: 12px 24px;
     border: none;
-    border-radius: 4px;
+    border-radius: 32px;
     cursor: pointer;
     font-size: 16px;
     margin-top: 20px;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, font-size 0.3s ease, transform 0.3 ease;
+    font-family: 'Gotham';
 }
 
 input[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: rgb(20, 250, 120); /* A brighter green */
+    font-size: 18px; /* Larger font size */
+    transform: scale(1.1); /* Increase the size by 10% */
 }
 
 input[type="submit"]:active {
-    background-color: #3d8b40;
+    background-color: rgb(20, 250, 120);
     transform: translateY(1px);
 }
