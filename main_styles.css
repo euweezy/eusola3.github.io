@@ -34,7 +34,7 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     padding: 20px;
-    background-color: linear-gradient(rgb(0, 0, 0), rgb#2A2A2A);
+    background-color: linear-gradient(to bottom, rgb(0, 0, 0), rgb(42, 42, 42));
 }
 
 h1 {
