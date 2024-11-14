@@ -34,17 +34,19 @@ body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     padding: 20px;
-    background-color: #1b1b32;
+    background: linear-gradient(to bottom, rgb(0, 0, 0), rgb(42, 42, 42));
+}
+
+h1, h3 {
+    color: #FFFFFF;
 }
 
 h1 {
-    color: #1DB954;
     text-align: center;
     margin-bottom: 20px;
 }
 
 h3 {
-    color: #666;
     margin-bottom: 15px;
 }
 
