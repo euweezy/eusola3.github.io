@@ -1,106 +1,53 @@
-/* Reset and Basic Layout */
 * {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Gotham', Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     line-height: 1.6;
+    color: #333;
+    background-color: #f9f9f9;
     padding: 20px;
-    min-height: 100vh;
-    background: linear-gradient(to top, rgb(0, 0, 0), rgb(42, 42, 42));
-    text-align: center;
-    color: #FFFFFF;
-}
-
-/* Font Imports */
-@font-face {
-    font-family: 'Gotham';
-    src: url('fonts/GothamBold.ttf') format('truetype');
-    font-weight: bold;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Gotham';
-    src: url('fonts/GothamMedium.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* Header Styles */
-h1, h3 {
-    margin-bottom: 15px;
-}
-
-/* Fieldset Styling */
-.box {
-    margin-bottom: 20px;
-    background-color: rgb(18, 18, 18);
-    border-radius: 8px;
-    max-width: 50%;
-    margin: 0 auto;
-}
-fieldset {
-    border: none;
-    padding: 15px;
-    
     text-align: center;
 }
 
-/* Label and Input Styling */
-label {
+.header-title {
+    font-size: 3rem;
+    color: black;
+}
+
+.description {
+    color: #555;
+    font-size: 1.2rem;
+    margin-bottom: 50px;
+}
+
+.link {
     display: inline-block;
-    margin: 8px 0;
-    width: 120px;
-    text-align: right;
-    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #fff;
+    background-color: #007BFF;
+    border: 2px solid transparent;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
 }
 
-input[type="text"],
-input[type="email"],
-input[type="number"],
-input[type="date"],
-select {
-    width: 200px;
-    padding: 8px;
-    margin: 5px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-/* Gender Radio Styling */
-input[type="radio"] {
-    margin: 0 5px 0 15px;
-}
-
-/* Submit Button Styling */
-input[type="submit"] {
-    background-color: rgb(30, 215, 96);
-    color: rgb(0, 0, 0);
-    padding: 12px 24px;
-    border: none;
-    border-radius: 32px;
-    cursor: pointer;
-    font-size: 16px;
-    margin-top: 20px;
-    transition: background-color 0.3s ease, font-size 0.3s ease, transform 0.3 ease;
-    font-family: 'Gotham';
-}
-
-input[type="submit"]:hover {
-    background-color: rgb(20, 250, 120); /* A brighter green */
-    font-size: 18px; /* Larger font size */
-    transform: scale(1.1); /* Increase the size by 10% */
-}
-
-input[type="submit"]:active {
-    background-color: rgb(20, 250, 120);
-    transform: translateY(1px);
+.link:hover{
+    color: #007bff;
+    background-color: #f9f9f9;
+    border: 2px solid #007BFF;
 }
 
 footer {
-    margin-top: 20px;
+    
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+
 }
