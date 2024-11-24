@@ -5,13 +5,13 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/conversion_styles.css" />
-    <script src="../js/conversion_script"></script>
+    <script src="../js/conversion_script.js"></script>
     </head>
     <body>
         <main class="main-content">
             <h1 class="header-title">General Conversion Tool</h1>
             <div class="number-container">
-                <select>
+                <select id="operation">
                     <option value="" disabled selected>Select an option</option>
                     <option value="CTF">Celsius to Fahrenheit</option>
                     <option value="FTC">Fahrenheit to Celsius</option>
@@ -20,14 +20,14 @@
                 </select>
                 <div class="input-group">
                     <label class="label" for="number-input">Enter a number:</label>
-                    <input type="number" class="number-input" id="number-input">
+                    <input type="number" class="number-input" id="num1" step="any">
                 </div>
                 <p class="conversion-separator">to</p>
                 <div class="input-group">
                     <label class="label" for="number-output">Result:</label>
-                    <input type="number" class="number-input" id="number-output">
+                    <input type="number" class="number-input" id="result" step="any" readonly>
                 </div>
-                <button class="button">Convert</button>
+                <button class="button" onclick="performCalculation()">Convert</button>
             </div>
             <a href="../index.html" class="link">Back to Home Page!</a>
         </main>
