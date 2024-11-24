@@ -1,0 +1,124 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 60px; /* Space for footer */
+}
+
+.header-title {
+    text-align: center;
+    margin: 2rem 0;
+    color: #333;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.number-container {
+    background-color: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+select {
+    display: flex;
+    border: 2px solid #e2e8f0;
+    width: 80%;
+    font-size: 16px;
+    color: #333;
+    border-radius: 6px;
+    margin-bottom: 16px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.label {
+    font-weight: 600;
+    color: #333;
+}
+
+.number-input {
+    width: 100%;
+    padding: 8px 12px;
+    font-size: 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 6px;
+    outline: none;
+    transition: border-color 0.2s ease;
+}
+
+.number-input:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 0 2px rgba(0,123,255,0.1);
+}
+
+.conversion-separator {
+    text-align: center;
+    margin: 1rem 0;
+    font-weight: 500;
+    color: #666;
+}
+
+.button {
+    display: block;
+    width: 100%;
+    font-size: 1.1rem;
+    color: #fff;
+    background-color: #007BFF;
+    border: 2px solid transparent;
+    padding: 10px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin: 1.5rem 0;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.link {
+    display: inline-block;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: #007BFF;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    margin-top: 2rem;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
