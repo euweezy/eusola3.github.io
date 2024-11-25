@@ -1,5 +1,6 @@
-function performCalculation() {
+document.querySelector("#convert").addEventListener("click", performCalculation);
 
+function performCalculation() {
     const num1 = parseFloat(document.getElementById("num1").value);
     const operation = document.getElementById("operation").value;
 
