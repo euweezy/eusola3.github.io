@@ -11,9 +11,9 @@ function performCalculation() {
     } else if (operation == "FTC") {
         result = (num1 - 32) * 5/9;
     } else if (operation == "MTF") {
-        result = num1 * 1.60934;
+        result = num1 * 3.28084;
     } else if (operation == "FTM") {
-        result = num1 * 0.621371;
+        result = num1 / 3.28084;
     }
 
     document.getElementById("result").value = result;

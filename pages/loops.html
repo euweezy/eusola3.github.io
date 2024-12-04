@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops</title>
+    <link rel="stylesheet" href="../css/loops_styles.css" />
+</head>
+
+<body>
+    <main>
+        <h1 class="header-title">Factorial, Sum, and Average of First N Natural Numbers</h1>
+        <div class="number-container">
+            <label for="operation">Find the...</label>
+            <select id="operation">
+                <option value="" disabled selected>Select an option</option>
+                <option value="F">Factorial</option>
+                <option value="S">Sum</option>
+                <option value="A">Average</option>
+            </select>
+            <p class="conversion-separator">of</p>
+            <div class="input-group">
+                <label for="num1">Enter Number:</label>
+                <input type="number" id="num1">
+            </div>
+            <div class="input-group">
+                <label for="result">Result:</label>
+                <input type="number" id="result" step="any" readonly>
+            </div>
+            <button class="button" id="convert">Calculate</button>
+        </div>
+        <a href="../index.html" class="link">Back to Home Page!</a>
+    </main>
+
+    <footer>
+        &copy; euwee sola, 2024
+    </footer>
+</body>
+
+</html>
