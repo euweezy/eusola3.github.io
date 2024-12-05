@@ -9,6 +9,7 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-color: #f0f4f8;
     padding-bottom: 60px; /* Space for footer */
 }
 
@@ -122,3 +123,4 @@ footer {
     text-align: center;
     padding: 1rem;
 }
+
