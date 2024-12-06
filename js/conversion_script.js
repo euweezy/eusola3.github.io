@@ -1,4 +1,4 @@
-document.querySelector("#convert").addEventListener("click", () => {
+document.getElementById("convert").addEventListener("click", () => {
     const num1 = parseFloat(document.getElementById("num1").value);
     const operation = document.getElementById("operation").value;
 

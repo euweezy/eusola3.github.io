@@ -1,0 +1,28 @@
+table, tr, tfoot, td {
+    border: 1px solid black;
+  }
+  .ndata {
+    text-align: right;
+  }
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #dlgConfirmCancel, #btnConfirm, #btnCancel, #dlgAreYouSure, #btnYes, #btnNo {
+    border-radius:10px;
+  }
+  #dlgConfirmCancel, #dlgAreYouSure {
+    background-color:lightgrey; 
+  }
+  #btnConfirm, #btnYes {
+    background-color:green;
+    color:white;
+  }
+  #btnCancel, #btnNo {
+    background-color:red;
+  }
+  .dlgbuttons {
+    display:flex;
+    justify-content:space-evenly;
+  }
