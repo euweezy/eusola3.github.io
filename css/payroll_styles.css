@@ -15,6 +15,7 @@ body {
   justify-content: center;
   align-items: center;
   padding: 2rem;
+  position: relative;
 }
 
 body {
@@ -177,6 +178,7 @@ dialog h4 {
   transition: all 0.3s ease;
   margin-top: 1rem;
   text-align: center;
+  margin-bottom: 2rem;
 }
 
 .link:hover {
@@ -187,7 +189,8 @@ dialog h4 {
 }
 
 footer {
-  position: fixed;
+  position: absolute;
+  margin-top: 200px;
   left: 0;
   bottom: 0;
   width: 100%;
