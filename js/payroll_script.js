@@ -31,43 +31,94 @@ function addEmployees() {
 }
 
 document.getElementById("employeeForm").addEventListener("submit", function (event) {
-  event.preventDefault(); 
+  event.preventDefault(); // Prevent default input values being submitted
 
-  const name = document.getElementById("name").value.trim();
-  const daysworkedInput = document.getElementById("daysworked").value.trim();
-  const dailyrateInput = document.getElementById("dailyrate").value.trim();
-  const deductionInput = document.getElementById("deduction").value.trim();
+  const confirmationDialog = document.getElementById("dlgConfirmSubmit");
+  confirmationDialog.showModal(); // presents confirmation dialog
 
-  if (!name || !daysworkedInput || !dailyrateInput || !deductionInput) {
-    console.log("Alert about to show!");
-    alert("All fields are required.");
-    return; 
+  // Event handler for when the confirmation dialog is closed
+  confirmationDialog.addEventListener("close", () => { 
+    if (confirmationDialog.returnValue === "confirm") {
+      const name = document.getElementById("name").value.trim(); // initializes variables based on user input
+      const daysworkedInput = document.getElementById("daysworked").value.trim(); //value.trim() removes any whitespace before and after user input
+      const dailyrateInput = document.getElementById("dailyrate").value.trim();
+      const deductionInput = document.getElementById("deduction").value.trim();
+
+      if (!name || !daysworkedInput || !dailyrateInput || !deductionInput) { // alert if any of the fields are empty.
+        alert("All fields are required.");
+        return;
+      }
+
+      const daysworked = parseFloat(daysworkedInput); // converts the string input to a floating point number
+      const dailyrate = parseFloat(dailyrateInput);
+      const deduction = parseFloat(deductionInput);
+
+      if (isNaN(daysworked) || isNaN(dailyrate) || isNaN(deduction)) { // alert if any of the number inputs are non numeric values.
+        alert("Please enter valid numeric values for Days Worked, Daily Rate, and Deduction.");
+        return;
+      }
+
+      const grosspay = (daysworked * dailyrate).toFixed(2); // calculations for grosspay and netpay
+      const netpay = (grosspay - deduction).toFixed(2);
+
+      const emp = { // because the initialized variables are already the same name as the values of the object, only enter as is.
+        name,
+        daysworked,
+        dailyrate,
+        grosspay,
+        deduction,
+        netpay,
+      };
+
+      payroll.push(emp); // adds new object to the end of the array.
+      showEmployees(); // refreshes table
+      this.reset(); // input fields and such are empty again
+    }
+  });
+});
+
+document.getElementById("btnedit").addEventListener("click", () => { // event handler when edit button is clicked.
+  const empNumberInput = document.getElementById("delemployee").value.trim(); // retrieves employee number to edit from the input
+
+  const empNumber = parseInt(empNumberInput, 10); // converts string input to a base 10 integer
+  if (isNaN(empNumber) || empNumber < 1 || empNumber > payroll.length) { // alerts if the input is invalid
+    alert("Invalid Employee Number. Please enter a number between 1 and " + payroll.length);
+    return false;
   }
 
-  const daysworked = parseFloat(daysworkedInput);
-  const dailyrate = parseFloat(dailyrateInput);
-  const deduction = parseFloat(deductionInput);
+  // Fill the form with the existing employee data for editing
+  const empIndex = empNumber - 1; // converts value of employee to be appropriate with array index
+  const employee = payroll[empIndex]; // assigns that value to employee, meaning we can now directly access the object with the employee variable
 
-  if (isNaN(daysworked) || isNaN(dailyrate) || isNaN(deduction)) {
-    alert("Please enter valid numeric values for Days Worked, Daily Rate, and Deduction.");
-    return; 
-  }
+  // Show the confirmation dialog for editing
+  const confirmationDialog = document.getElementById("dlgConfirmEdit");
+  document.getElementById("edtmsg").textContent = `Are you sure you want to edit the details of Employee No. ${empNumber}?`;
+  confirmationDialog.showModal();
 
-  const grosspay = (daysworked * dailyrate).toFixed(2);
-  const netpay = (grosspay - deduction).toFixed(2);
+  confirmationDialog.addEventListener("close", () => {
+    if (confirmationDialog.returnValue === 'confirm') {
+      const name = document.getElementById("name").value.trim();
+      const daysworkedInput = document.getElementById("daysworked").value.trim();
+      const dailyrateInput = document.getElementById("dailyrate").value.trim();
+      const deductionInput = document.getElementById("deduction").value.trim();
 
-  const emp = {
-    name,
-    daysworked,
-    dailyrate,
-    grosspay,
-    deduction,
-    netpay,
-  };
+      if (!name || !daysworkedInput || !dailyrateInput || !deductionInput) {
+        alert("All fields are required.");
+        return;
+      }
 
-  payroll.push(emp);
-  showEmployees();
-  this.reset(); 
+      // Update the employee details
+      employee.name = name; // syntax for updating value of property = objectName.property
+      employee.daysworked = parseFloat(daysworkedInput);
+      employee.dailyrate = parseFloat(dailyrateInput);
+      employee.deduction = parseFloat(deductionInput);
+      employee.grosspay = (employee.daysworked * employee.dailyrate).toFixed(2);
+      employee.netpay = (employee.grosspay - employee.deduction).toFixed(2);
+
+      showEmployees();  // Update the table with the modified data
+      document.getElementById("delemployee").value = ''; // Reset the employee number field
+    }
+  });
 });
 
 function showEmployees() {
@@ -97,32 +148,6 @@ function showEmployees() {
   document.getElementById("tNetPay").textContent = tnetpay.toFixed(2);
 }
 
-
-function showEmployees() {
-  let tb = "", trec = "", tgpay = 0.00, tded = 0.00, tnetpay = 0.00
-  let lno = 1;
-  for (emp of payroll) {
-    trec = "<tr>"
-      + '<td style="text-align:right">' + lno.toFixed(0) + "</td>"
-      + "<td>" + emp.name + "</td>"
-      + '<td class="ndata">' + emp.daysworked.toFixed(2) + "</td>"
-      + '<td class="ndata">' + emp.dailyrate.toFixed(2) + "</td>"
-      + '<td class="ndata">' + emp.grosspay + "</td>"
-      + '<td class="ndata">' + emp.deduction.toFixed(2) + "</td>"
-      + '<td class="ndata">' + emp.netpay + "</td>"
-      + "</tr>";
-    tb += trec;
-    tgpay += emp.grosspay*1;
-    tded += emp.deduction*1;
-    tnetpay += emp.netpay*1;
-    ++lno;
-  }
-  document.getElementById("tablebody").innerHTML = tb;
-  document.getElementById("tGrossPay").innerHTML = tgpay.toFixed(2);
-  document.getElementById("tDeduction").innerHTML = tded.toFixed(2);
-  document.getElementById("tNetPay").innerHTML = tnetpay.toFixed(2);
-}
-
 document.addEventListener("DOMContentLoaded", () => {
   // initial setup when page loads 
   addEmployees(); 
@@ -142,6 +167,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("dlgmsg").innerHTML = "Delete all records?";
     dlgConfirmCancel.showModal();
   });
+
   dlgConfirmCancel.addEventListener("close", (e) => {
     var rst = e.target.returnValue;
     if (rst === "confirm") {
