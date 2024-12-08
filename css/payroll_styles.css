@@ -18,12 +18,6 @@ body {
   position: relative;
 }
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 .container {
   background-color: white;
   padding: 2.5rem;

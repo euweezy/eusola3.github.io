@@ -66,26 +66,6 @@ main {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.link:nth-child(1):hover {
-    background: #2d3436;
-    border-color: #2d3436;
-}
-
-.link:nth-child(2):hover {
-    background: #636e72;
-    border-color: #636e72;
-}
-
-.link:nth-child(3):hover {
-    background: #b2bec3;
-    border-color: #b2bec3;
-}
-
-.link:nth-child(4):hover {
-    background: #2d3436;
-    border-color: #2d3436;
-}
-
 footer {
     
     position: fixed;
